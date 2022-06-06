@@ -1,6 +1,7 @@
 package Graph;
-/**
- * 朴素版dijkstra算法 适合稠密图 复杂度 o(n^2)
+
+/*
+  朴素版dijkstra算法 适合稠密图 复杂度 o(n^2)
  */
 
 import java.util.*;
