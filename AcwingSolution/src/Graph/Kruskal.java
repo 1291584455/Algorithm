@@ -1,5 +1,7 @@
+package Graph;
+
 import java.util.*;
-public class Main{
+public class Kruskal{
     static int N = 100010;
     static int m, n;
     static Edge[] edges;
@@ -47,13 +49,4 @@ public class Main{
     }
 
 
-}
-
-class Edge{
-    int from , to , weight;
-    public Edge(int f, int t, int w){
-        from = f;
-        to = t;
-        weight =  w;
-    }
 }
