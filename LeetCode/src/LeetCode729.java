@@ -29,6 +29,29 @@ class MyCalendar {
     }
 }
 
+/*
+ Method 2
+class MyCalendar {
+    TreeSet<int[]> set = new TreeSet<>((a ,b) ->{
+        if(a[1] <= b[0]){
+            return -1;
+        }else if (a[0] >= b[1]){
+            return 1;
+        }else{
+            return 0;
+        }
+    });
+    public MyCalendar() {
+
+    }
+
+    public boolean book(int start, int end) {
+        int[] a = {start, end};
+        return set.add(a);
+    }
+}
+*/
+
 /**
  * Your MyCalendar object will be instantiated and called as such:
  * MyCalendar obj = new MyCalendar();

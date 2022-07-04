@@ -1,28 +1,34 @@
-import java.util.*;
-class MyCalendarTwo {
-    TreeMap<Integer, Integer> map = new TreeMap<>();
-    public MyCalendarTwo() {
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+class MyCalendar {
+    Map<Integer, Integer> map = new TreeMap<>();
+
+    public MyCalendar() {
 
     }
 
     public boolean book(int start, int end) {
-        Integer low = map.ceilingKey(start);
-        Integer high = map.floorKey(end);
-        if(low == null || high == null){
-            map.put(start, map.getOrDefault(start, 0) + 1);
-            map.put(end, map.getOrDefault(end, 0) + 1);
-            return true;
-        }else {
-            int cnt = 0;
-            while (low != null && low <= high ){
-                cnt += map.get(low);
-                low = map.ceilingKey(low + 1);
-                if(cnt == 2) return false;
-            }
+        map.put(start , 1);
+        map.put(end, -1);
+        int t = 0;
+        for(int key : map.keySet()){
+            t += map.get(key);
         }
-        map.put(start, map.getOrDefault(start, 0) + 1);
-        map.put(end, map.getOrDefault(end, 0) + 1);
-        return true;
+        if(t == 0){
+            return  true;
+        }
+        map.remove(start);
+        map.remove(end);
+        return false;
     }
+
 }
 
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * MyCalendar obj = new MyCalendar();
+ * boolean param_1 = obj.book(start,end);
+ */
